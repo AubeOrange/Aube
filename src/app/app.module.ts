@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ProfilePage } from '../pages/profile/profile';
+import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { FIREBAS_CONFIG } from "./app.firebase.config";
 import {ChatPage} from "../pages/chat/chat";
 import {ChatService} from "../pages/chat/chat.service";
@@ -25,7 +26,8 @@ import {SpeechRecognition} from "@ionic-native/speech-recognition";
         LoginPage,
         RegisterPage,
         ProfilePage,
-      ChatPage
+        ChatPage,
+        ProfileModalPage,
     ],
     imports: [
         BrowserModule,
@@ -41,7 +43,8 @@ import {SpeechRecognition} from "@ionic-native/speech-recognition";
         LoginPage,
         RegisterPage,
         ProfilePage,
-      ChatPage
+        ChatPage,
+        ProfileModalPage,
     ],
     providers: [
       ChatService,

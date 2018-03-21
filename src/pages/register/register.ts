@@ -34,11 +34,12 @@ export class RegisterPage {
                         'email': this.user.email,
                         'sexe': this.user.sexe,
                         'age': this.user.age,
+                        'ville': this.user.ville,
                         'points': 0,
                         'sante': {
                             'poids': this.user.poids,
                             'taille': this.user.taille,
-                            'imc': Math.round(this.user.poids / Math.pow(this.user.taille/100, 2))
+                            'imc': Math.round(this.user.poids / Math.pow(this.user.taille/100, 2)),
                         }
                     }).then( () => {
                         this.presentLoading();
