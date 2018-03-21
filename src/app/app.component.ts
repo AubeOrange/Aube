@@ -3,14 +3,16 @@ import {Menu, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ChatPage} from "../pages/chat/chat";
+// import { HomePage } from '../pages/home/home';
+import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ChatPage;
+  rootPage:any = ProfilePage;
   chatPage:any = ChatPage;
-  profilePage:any ;
+  profilePage:any = ProfilePage;
 
   @ViewChild(Nav) nav: Nav;
   @ViewChild(Menu) menu:Menu;
@@ -27,7 +29,6 @@ export class MyApp {
   openRoute(param){
     this.nav.setRoot(param).then(data=>{
       this.menu.close();
-
     })
   }
 

@@ -74,8 +74,10 @@ export class ChatPage {
     let options = {
       language: 'fr-FR'
     };
-    this.speechRecognition.startListening().subscribe(matches => {
-      this.phrases = matches;
+    this.getPermission();
+    this.speechRecognition.startListening(options).subscribe(matches => {
+      // this.phrases = matches;
+      this.chat.converse(matches[0]);
       this.cd.detectChanges();
     });
     this.isRecording = true;
