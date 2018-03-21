@@ -1,0 +1,65 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>ProfileModal</ion-title>
+        <ion-buttons start>
+            <button ion-button clear small (click)="dismiss()">
+                <span ion-text showWhen="ios">Annuler</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header class="card-title">
+            Qui êtes vous ?
+        </ion-card-header>
+        <ion-item>
+            <ion-label>Nom d'utilisateur</ion-label>
+            <ion-input type="string" [(ngModel)]="user.username" placeholder="{{ (userInfo | async)?.username }}" clearInput></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Sexe</ion-label>
+            <ion-select [(ngModel)]="user.sexe" clearInput okText="OK" cancelText="Annuler" placeholder="{{ (userInfo | async)?.sexe }}">
+                <ion-option value="feminin">Feminin</ion-option>
+                <ion-option value="masculin">Masculin</ion-option>
+                <ion-option value="/">Ne pas préciser</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Age</ion-label>
+            <ion-input type="number" [(ngModel)]="user.age" placeholder="{{ (userInfo | async)?.age }}" clearInput></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Ville de résidence</ion-label>
+            <ion-input type="string" [(ngModel)]="user.ville" placeholder="{{ (userInfo | async)?.ville }}" clearInput></ion-input>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header class="card-title">
+            Pour votre bien-être
+        </ion-card-header>
+        <ion-item>
+            <ion-label>Taille (en cm)</ion-label>
+            <ion-input type="string" [(ngModel)]="user.taille" placeholder="{{ (userInfo | async)?.taille }}" clearInput></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Poids (en kg)</ion-label>
+            <ion-input type="number" [(ngModel)]="user.poids" placeholder="{{ (userInfo | async)?.poids }}" clearInput></ion-input>
+        </ion-item>
+    </ion-card>
+
+
+    <button ion-button small full (click)="updateProfile(user)">
+        <span ion-text>Sauvegarder</span>
+    </button>
+
+</ion-content>

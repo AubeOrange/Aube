@@ -1,11 +1,11 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Votre profile</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Votre Profil</ion-title>
+    </ion-navbar>
 </ion-header>
-
 
 <ion-content>
     <ion-card>
@@ -15,6 +15,8 @@
                 <img src="assets/imgs/marty-avatar.png">
             </ion-avatar>
             <h2> {{ (user | async)?.username }}</h2>
+            <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
+            <ion-icon *ngIf=" (user | async)?.sexe === 'feminin'" name="female"></ion-icon>
             <p>  <ion-icon name="flame"></ion-icon> {{ (user | async )?.age}} ans</p>
             <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
         </ion-item>
@@ -27,14 +29,19 @@
         </ion-item>
 
         <ion-item>
+            <ion-icon name="locate" item-left large ></ion-icon>
+            <h2> {{ (user | async )?.ville }}</h2>
+        </ion-item>
+
+        <ion-item>
             <ion-icon name="body" item-start large></ion-icon>
-            <h2>IMC {{ (user | async )?.sante.imc }}</h2>
-            <p>{{ (user | async )?.sante.poids }} Kg | {{ (user | async )?.sante.taille }} cm</p>
+            <h2>IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
+            <p>{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
         </ion-item>
 
         <ion-row>
             <ion-col>
-                <button ion-button icon-left clear small>
+                <button ion-button icon-left clear small (click)="openModal()">
                     <ion-icon name="clipboard"></ion-icon>
                     <div>Mettre à jour mes informations</div>
                 </button>

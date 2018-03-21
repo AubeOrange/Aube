@@ -70,7 +70,6 @@ export class ChatPage {
 
 
   startListening(){
-
       this.getPermission();
       let options = {
         language: 'fr-FR'
@@ -80,7 +79,6 @@ export class ChatPage {
         this.cd.detectChanges();
       });
       this.isRecording = true;
-
   }
 
   getPermission() {
