@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
+import { ProfileModalPage } from '../profile-modal/profile-modal';
 
 @NgModule({
   declarations: [

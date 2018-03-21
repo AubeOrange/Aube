@@ -35,8 +35,8 @@
 
         <ion-item>
             <ion-icon name="body" item-start large></ion-icon>
-            <h2>IMC {{ (user | async )?.sante.imc }}</h2>
-            <p>{{ (user | async )?.sante.poids }} Kg | {{ (user | async )?.sante.taille }} cm</p>
+            <h2>IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
+            <p>{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
         </ion-item>
 
         <ion-row>
