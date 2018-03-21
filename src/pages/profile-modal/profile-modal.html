@@ -48,12 +48,12 @@
         </ion-card-header>
         <ion-item>
             <ion-label>Taille (en cm)</ion-label>
-            <ion-input type="string" [(ngModel)]="user.taille" placeholder="{{ (userInfo | async)?.sante.taille }}" clearInput></ion-input>
+            <ion-input type="string" [(ngModel)]="user.taille" placeholder="{{ (userInfo | async)?.taille }}" clearInput></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label>Poids (en kg)</ion-label>
-            <ion-input type="number" [(ngModel)]="user.poids" placeholder="{{ (userInfo | async)?.sante.poids }}" clearInput></ion-input>
+            <ion-input type="number" [(ngModel)]="user.poids" placeholder="{{ (userInfo | async)?.poids }}" clearInput></ion-input>
         </ion-item>
     </ion-card>
 

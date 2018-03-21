@@ -16,8 +16,11 @@ export class ProfilePage {
 
     userRef: AngularFireObject<any>;
     user: Observable<User>;
+    Math: any;
 
-  constructor(private aFAuth:AngularFireAuth, private aFDatabase:AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl:ModalController) {}
+  constructor(private aFAuth:AngularFireAuth, private aFDatabase:AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl:ModalController) {
+      this.Math = Math;
+  }
 
   ionViewDidLoad() {
       this.aFAuth.authState.subscribe(data => {
