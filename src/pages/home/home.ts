@@ -3,15 +3,15 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {}
+    constructor(public navCtrl: NavController) {}
 
-  redirectToLoginPage(){
-      this.navCtrl.push(LoginPage);
-  }
-
+    redirectToLoginPage(){
+        this.navCtrl.push(LoginPage);
+    }
 }

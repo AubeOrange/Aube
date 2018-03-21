@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    userRef: AngularFireObject<any>;
+    user: Observable<any>;
+
+  constructor(private aFAuth:AngularFireAuth, private aFDatabase:AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+      this.aFAuth.authState.subscribe(data => {
+          this.userRef = this.aFDatabase.object(`user/${data.uid}`);
+          this.user = this.userRef.valueChanges();
+      })
   }
 
 }

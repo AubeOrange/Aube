@@ -2,8 +2,8 @@ import {Component, Injector, ViewChild} from '@angular/core';
 import {Menu, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import {ChatPage} from "../pages/chat/chat";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -34,7 +34,6 @@ export class MyApp {
   getNavCtrl(): NavController {
     return this.injector.get(NavController);
   }
-
 
 }
 
