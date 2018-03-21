@@ -23,7 +23,6 @@ export class ChatPage {
   @ViewChild(Content) content: Content;
 
   messages: Observable<Message[]>;
-  phrases: String[];
   formValue: string;
   isRecording: boolean = false;
 
@@ -71,14 +70,17 @@ export class ChatPage {
 
 
   startListening(){
-    let options = {
-      language: 'fr-FR'
-    };
-    this.speechRecognition.startListening().subscribe(matches => {
-      this.phrases = matches;
-      this.cd.detectChanges();
-    });
-    this.isRecording = true;
+
+      this.getPermission();
+      let options = {
+        language: 'fr-FR'
+      };
+      this.speechRecognition.startListening(options).subscribe(matches => {
+        this.chat.converse(matches[0]);
+        this.cd.detectChanges();
+      });
+      this.isRecording = true;
+
   }
 
   getPermission() {

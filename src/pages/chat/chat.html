@@ -13,6 +13,7 @@
                                     'to':   message.sentBy === 'user' }">
       {{ message.content }}
     </div>
+    <img *ngIf="message.url" src="{{message.url}}" />
   </ng-container>
 
 </ion-content>
@@ -25,7 +26,7 @@
         </ion-item>
       </ion-col>
       <ion-col col-3 style="display: flex">
-          <button ion-button  full block (click)="startListening()"  style="margin: auto;margin-bottom: 0">Record</button>
+          <button ion-button  color="light" full block (click)="startListening()"  style="margin: auto;margin-bottom: 0"><ion-icon name="mic"></ion-icon>  </button>
       </ion-col>
     </ion-row>
   </ion-grid>

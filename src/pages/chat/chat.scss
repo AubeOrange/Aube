@@ -1,4 +1,7 @@
 page-chat {
+  img{
+    padding: 0px 20px;
+  }
   .message {
     border-radius: 50px;
     margin: 0 15px 10px;
@@ -7,7 +10,7 @@ page-chat {
     font-weight: bold;
   }
   .message.to {
-    background-color: #2095FE;
+    background-color: #FF7900;
     color: #fff;
     margin-left: 100px;
     text-align: right;
@@ -22,4 +25,5 @@ page-chat {
   .message.from + .message.from {
     margin-top: -10px;
   }
+
 }

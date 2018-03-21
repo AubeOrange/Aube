@@ -16,7 +16,10 @@ import { FIREBAS_CONFIG } from "./app.firebase.config";
 import {ChatPage} from "../pages/chat/chat";
 import {ChatService} from "../pages/chat/chat.service";
 import { Camera } from '@ionic-native/camera';
+
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import {SpeechRecognition} from "@ionic-native/speech-recognition";
+import {AlarmPage} from "../pages/alarm/alarm";
 
 @NgModule({
     declarations: [
@@ -25,6 +28,7 @@ import {SpeechRecognition} from "@ionic-native/speech-recognition";
         LoginPage,
         RegisterPage,
         ProfilePage,
+      AlarmPage,
       ChatPage
     ],
     imports: [
@@ -41,10 +45,12 @@ import {SpeechRecognition} from "@ionic-native/speech-recognition";
         LoginPage,
         RegisterPage,
         ProfilePage,
+      AlarmPage,
       ChatPage
     ],
     providers: [
       ChatService,
+      LocalNotifications,
       Camera,
       SpeechRecognition,
         StatusBar,
