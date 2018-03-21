@@ -1,28 +1,63 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Register</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Inscription</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-    <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-    </ion-item>
+    <ion-card>
+        <ion-card-header>
+            Informations de connexion
+        </ion-card-header>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="user.email" placeholder="Adresse email" clearInput required></ion-input>
+        </ion-item>
 
-    <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="password" [(ngModel)]="user.password" placeholder="Mot de passe" clearInput required></ion-input>
+        </ion-item>
+    </ion-card>
 
-    <button ion-button (click)="register(user)" full>Login</button>
+    <ion-card>
+        <ion-card-header>
+            Qui êtes vous ?
+        </ion-card-header>
+        <ion-item>
+            <ion-input type="string" [(ngModel)]="user.username" placeholder="Nom d'utilisateur" clearInput required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Sexe</ion-label>
+            <ion-select [(ngModel)]="user.sexe" clearInput okText="OK" cancelText="Annuler" required>
+                <ion-option value="feminin">Feminin</ion-option>
+                <ion-option value="masculin">Masculin</ion-option>
+                <ion-option value="/">Ne pas préciser</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-input type="number" [(ngModel)]="user.age" placeholder="Age" clearInput required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input type="string" [(ngModel)]="user.ville" placeholder="Ville de résidence" clearInput required></ion-input>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Pour votre bien-être
+        </ion-card-header>
+        <ion-item>
+            <ion-input type="number" [(ngModel)]="user.taille" placeholder="Votre taille (en cm)" clearInput required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input type="number" [(ngModel)]="user.poids" placeholder="Votre poids (en kg)" clearInput required></ion-input>
+        </ion-item>
+    </ion-card>
+
+    <button ion-button round (click)="register(user)" full>Rejoignez l'aventure!</button>
 </ion-content>
