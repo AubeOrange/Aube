@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { ModalController } from 'ionic-angular';
 import { User } from "../../modules/user";
 import { ProfileModalPage } from '../profile-modal/profile-modal';
+import { ChatPage } from '../chat/chat';
 
 @IonicPage()
 @Component({
@@ -32,6 +33,10 @@ export class ProfilePage {
   openModal() {
       const modal = this.modalCtrl.create(ProfileModalPage);
       modal.present();
+  }
+
+  redirectToChat(){
+      this.navCtrl.push(ChatPage);
   }
 
 }

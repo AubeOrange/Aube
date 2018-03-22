@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+            <ion-icon class="icons" name="menu"></ion-icon>
         </button>
         <ion-title>Votre Profil</ion-title>
     </ion-navbar>
@@ -10,53 +10,45 @@
 <ion-content>
     <ion-card>
         <ion-item>
-            <ion-avatar item-start>
+            <ion-avatar item-start large>
                 <img src="assets/imgs/profile/avatar-profil-papa.png">
             </ion-avatar>
 
-          <ion-row>
-            <ion-col>
-              <h2> {{ (user | async)?.username }}</h2></ion-col>
-            <ion-col>
-                <img src="assets/imgs/profile/edit.svg" (click)="openModal()" class="edit">
-            </ion-col>
-          </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h2> {{ (user | async)?.username }}</h2></ion-col>
+                <ion-col>
+                    <img src="assets/imgs/profile/edit.svg" (click)="openModal()" class="edit">
+                </ion-col>
+            </ion-row>
 
-            <img src="assets/imgs/profile/man-gender.svg" class="gender" *ngIf=" (user | async)?.sexe === 'masculin'" name="male">
-            <img src="assets/imgs/profile/woman-gender.svg" *ngIf=" (user | async)?.sexe === 'feminin'" name="female">
+            <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
+            <ion-icon *ngIf=" (user | async)?.sexe === 'feminin'" name="female"></ion-icon>
 
-
-          <ion-row>
-            <ion-col>
-              <img src="assets/imgs/profile/age.svg" class="age">
-
-              <p class="set-text">{{ (user | async )?.age}} ans</p>
-            </ion-col>
-          </ion-row>
-          <img src="assets/imgs/profile/points.svg" class="star">
-          <p style="color: gold" class="set-text-star">{{ (user | async)?.points }} </p>
+            <p>  <ion-icon name="flame"></ion-icon> {{ (user | async )?.age}} ans</p>
+            <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
         </ion-item>
 
         <img src="assets/imgs/profile/graphique.svg">
 
-        <ion-item style="margin-top: 15px;">
-          <img src="assets/imgs/profile/mail.svg" class="mail size-text">
-          <h2 class="set-title"> {{ (user | async )?.email }}</h2>
+        <ion-item>
+            <ion-icon class="icons" name="mail" item-left large></ion-icon>
+            <h2 class="set-title"> {{ (user | async )?.email }}</h2>
         </ion-item>
 
         <ion-item>
-          <img src="assets/imgs/profile/localisation.svg" class="locate size-text">
+            <ion-icon class="icons" name="locate" item-left large></ion-icon>
             <h2 class="set-title"> {{ (user | async )?.ville }}</h2>
         </ion-item>
 
         <ion-item>
-          <img src="assets/imgs/profile/bonhomme.svg" class="imc size-text">
+            <ion-icon class="icons" name="body" item-left large></ion-icon>
             <h2 class="set-title">IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
             <p class="set-subtitle">{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
         </ion-item>
     </ion-card>
 </ion-content>
 
-<ion-footer class="button-orange">
-  <img src="assets/imgs/profile/chat-bot.svg" class="chat">
+<ion-footer style="background: #ff7900" (click)="redirectToChat()">
+    <img src="assets/imgs/profile/chat-bot.svg" class="chat">
 </ion-footer>

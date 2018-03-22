@@ -2,58 +2,19 @@ page-profile {
 
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
-  ion-card{
-    height: 100%;
-  }
-  .item-md ion-avatar img {
-    width: 130px;
-    height: 130px;
-  }
-
-  .toolbar-background-md {
-    background-color: #ff7900;
+  .icons {
+    color: #ff7900;
   }
 
   .toolbar-title-md {
-    color: #fff;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: 20px;
-    text-align: center;
   }
 
-  .gender{
-    width: 17.4px;
-    height: 19.6px;
-  }
-
-  .age{
-    width: 6.2px;
-    height: 25.6px;
-    margin-top: 5px;
-  }
-
-  .star{
-    width: 25.5px;
-    height: 24.4px;
-  }
-
-  .mail{
-    width: 33.2px;
-  }
-  .imc{
-    width: 27px;
-  }
-  .locate{
-    width: 36.7px;
-  }
   .edit{
     width: 24px;
     height: 24px;
   }
 
-  img.edit{
-    float: right;
-  }
   .chat{
     width: 52.7px;
     height: 37.1px;
@@ -63,45 +24,8 @@ page-profile {
     margin-right: auto;
     display: block;
   }
-  div{
-    display: inline;
-  }
-
-  .size-text{
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: 16px;
-  }
 
   .button-orange{
     background-color: #ff7900;
-  }
-
-  .set-text{
-    position: absolute;
-    margin-top: -15px;
-    margin-left: 15px;
-  }
-
-  .set-text-star{
-    position: absolute;
-    margin-top: -20px;
-    margin-left: 35px;
-    font-size: 16px;
-  }
-
-  .set-title{
-    position: absolute;
-    margin-left: 50px;
-    margin-top: -20px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: 16px;
-  }
-  .set-subtitle{
-    position: absolute;
-    margin-left: 50px;
-  }
-
-  .label-md {
-    margin: 0 8px 20px 0;
   }
 }
