@@ -7,12 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { ReveilPage } from '../pages/reveil/reveil';
 import { LoginPage } from '../pages/login/login';
+import { ProfileModalPage } from "../pages/profile-modal/profile-modal";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ProfilePage;
+  rootPage:any = ProfileModalPage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
   reveilPage: any = ReveilPage;

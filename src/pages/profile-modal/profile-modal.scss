@@ -1,3 +1,39 @@
 page-profile-modal {
 
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+  .ok{
+    width: 36px;
+    height: 36px;
+    float: right;
+    position: absolute;
+    margin: -30px 0 0 260px;
+  }
+
+  .toolbar-background-md {
+    background-color: #ff7900;
+  }
+
+  .toolbar-title-md {
+    color: #fff;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .avatar-modify{
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ion-card{
+    border: solid 1px #ff7900;
+  }
+
+  .card-md {
+    border-radius: 8px;
+  }
 }
