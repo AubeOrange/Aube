@@ -37,10 +37,16 @@ export class ChatService {
                    }
                    case "yahooWeatherForecast":{
                      let test :Fulfillment = <Fulfillment> res.result.fulfillment;
-                     this.getImageMeteo(test.data.condition);
-                     const botMessage = new Message(test.speech, 'bot',null,null);
-                     this.update(botMessage);
-                     this.getHabitMeteo(test.data);
+                     if (test.data){
+                       this.getImageMeteo(test.data.condition);
+                       const botMessage = new Message(test.speech, 'bot',null,null);
+                       this.update(botMessage);
+                       this.getHabitMeteo(test.data);
+                     }else{
+                       const speech = res.result.fulfillment.speech;
+                       const botMessage = new Message(speech, 'bot',null,null);
+                       this.update(botMessage);
+                     }
                      break;
                    }
                    default:{
