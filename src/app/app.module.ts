@@ -20,7 +20,7 @@ import { Camera } from '@ionic-native/camera';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import {SpeechRecognition} from "@ionic-native/speech-recognition";
-import {AlarmPage} from "../pages/alarm/alarm";
+import { ReveilPage } from '../pages/reveil/reveil';
 
 @NgModule({
     declarations: [
@@ -29,10 +29,9 @@ import {AlarmPage} from "../pages/alarm/alarm";
         LoginPage,
         RegisterPage,
         ProfilePage,
-      AlarmPage,
-      ChatPage
         ChatPage,
         ProfileModalPage,
+        ReveilPage,
     ],
     imports: [
         BrowserModule,
@@ -48,16 +47,15 @@ import {AlarmPage} from "../pages/alarm/alarm";
         LoginPage,
         RegisterPage,
         ProfilePage,
-      AlarmPage,
-      ChatPage
         ChatPage,
         ProfileModalPage,
+        ReveilPage,
     ],
     providers: [
-      ChatService,
-      LocalNotifications,
-      Camera,
-      SpeechRecognition,
+        ChatService,
+        LocalNotifications,
+        Camera,
+        SpeechRecognition,
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler}

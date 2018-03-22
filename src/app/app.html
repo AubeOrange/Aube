@@ -8,11 +8,14 @@
   </ion-header>
   <ion-content>
     <ion-list>
+      <button ion-item (click)="openRoute(profilePage)">
+        Profile
+      </button>
       <button ion-item (click)="openRoute(chatPage)" >
         Chat
       </button>
-      <button ion-item (click)="openRoute(profilePage)">
-        Profile
+      <button ion-item (click)="openRoute(reveilPage)" >
+        Reveil
       </button>
       <button ion-item menuClose>
         Fermer le menu
