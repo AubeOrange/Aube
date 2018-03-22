@@ -32,12 +32,7 @@ export class ReveilPage {
 
         this.platform.ready().then((ready) => {
             this.localNotification.on('click', (notification, state) => {
-                let alert = this.alertCtrl.create({
-                    title: 'test',
-                    subTitle: 'notif',
-                });
-                
-                alert.present();
+                this.navCtrl.setRoot(ChatPage, {mydata: "data"});
             });
         });
     }
@@ -48,6 +43,7 @@ export class ReveilPage {
             id: 1,
             title: 'Hey! Debout la dedans',
             text: 'Bon reveil avec Aube',
+            sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assets/sounds/secondes.caf',
             at: new Date(new Date().getTime() + 5 * 1000),
         });
     }
