@@ -20,7 +20,6 @@ import { Camera } from '@ionic-native/camera';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import {SpeechRecognition} from "@ionic-native/speech-recognition";
-import {AlarmPage} from "../pages/alarm/alarm";
 import { ReveilPage } from '../pages/reveil/reveil';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { ReveilPage } from '../pages/reveil/reveil';
         LoginPage,
         RegisterPage,
         ProfilePage,
-        AlarmPage,
         ChatPage,
         ProfileModalPage,
         ReveilPage,
@@ -49,7 +47,6 @@ import { ReveilPage } from '../pages/reveil/reveil';
         LoginPage,
         RegisterPage,
         ProfilePage,
-        AlarmPage,
         ChatPage,
         ProfileModalPage,
         ReveilPage,
