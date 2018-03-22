@@ -3,9 +3,9 @@ import {Menu, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ChatPage} from "../pages/chat/chat";
-import {AlarmPage} from "../pages/alarm/alarm";
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
+import { ReveilPage } from '../pages/reveil/reveil';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,6 +14,7 @@ export class MyApp {
   rootPage:any = HomePage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
+  reveilPage: any = ReveilPage;
 
   @ViewChild(Nav) nav: Nav;
   @ViewChild(Menu) menu:Menu;
