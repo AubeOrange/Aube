@@ -1,6 +1,7 @@
 page-chat {
   img{
     padding: 0px 20px;
+    margin-bottom: 10px;
   }
   .message {
     border-radius: 50px;
@@ -8,9 +9,10 @@ page-chat {
     padding: 15px 20px;
     position: relative;
     font-weight: bold;
+    margin-bottom: 12px !important;
   }
   .message.to {
-    background-color: #FF7900;
+    background-color: #FF9640;
     color: #fff;
     margin-left: 100px;
     text-align: right;
@@ -18,12 +20,19 @@ page-chat {
   .message.from {
     background-color: #E5E4E9;
     color: #363636;
-    margin-right: 100px;
-
+    margin-right: 50px;
   }
+
   .message.to + .message.to,
   .message.from + .message.from {
     margin-top: -10px;
+  }
+
+  .meteo{
+    max-width: 200px;
+  }
+  .smiley{
+    max-width: 120px;
   }
 
 }
