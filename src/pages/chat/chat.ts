@@ -1,10 +1,12 @@
 import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {ChatService, Message} from "./chat.service";
+import {AlertController, IonicPage, ModalController, NavController, NavParams, Platform} from 'ionic-angular';
+import {ChatService} from "./chat.service";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/scan';
 import { Content } from 'ionic-angular';
 import {SpeechRecognition} from "@ionic-native/speech-recognition";
+import {Message} from "../../modules/message";
+import {EquationModalPage} from "../equation-modal/equation-modal";
 
 /**
  * Generated class for the ChatPage page.
@@ -31,6 +33,8 @@ export class ChatPage {
               public chat: ChatService,
               public alertCtrl: AlertController,
               private cd: ChangeDetectorRef,
+              private platform:Platform,
+              private modalCtrl:ModalController,
               private speechRecognition: SpeechRecognition) {
   }
 
@@ -40,12 +44,13 @@ export class ChatPage {
   }
 
   ionViewDidLoad() {
+    this.chat.addMsgBienvenue(null);
     console.log('ionViewDidLoad ChatPage');
   }
 
   sendMessage() {
     if(this.formValue.trim() == ''){
-      this.showAlert();
+      this.showAlert("Votre message est vide");
     }else{
       this.chat.converse(this.formValue).then(()=>{
         this.scrollToBottom();
@@ -54,10 +59,10 @@ export class ChatPage {
     }
   }
 
-  showAlert() {
+  showAlert(param) {
     let alert = this.alertCtrl.create({
       title: 'Message Error',
-      subTitle: 'Votre message est vide',
+      subTitle: param,
       buttons: ['OK']
     });
     alert.present();
@@ -68,8 +73,8 @@ export class ChatPage {
   }
 
 
-
   startListening(){
+    if(this.platform.is('cordova')) {
       this.getPermission();
       let options = {
         language: 'fr-FR'
@@ -79,6 +84,9 @@ export class ChatPage {
         this.cd.detectChanges();
       });
       this.isRecording = true;
+    }else{
+      this.showAlert("Non disponible sur desktop");
+    }
   }
 
   getPermission() {
@@ -94,6 +102,11 @@ export class ChatPage {
     this.speechRecognition.stopListening().then(() => {
       this.isRecording = false;
     });
+  }
+
+  openModal() {
+    const modal = this.modalCtrl.create(EquationModalPage);
+    modal.present();
   }
 
 

@@ -13,5 +13,6 @@ export class HomePage {
 
     redirectToLoginPage(){
         this.navCtrl.push(LoginPage);
+
     }
 }

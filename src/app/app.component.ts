@@ -11,10 +11,11 @@ import { ReveilPage } from '../pages/reveil/reveil';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = ChatPage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
   reveilPage: any = ReveilPage;
+  homePage:any = HomePage;
 
   @ViewChild(Nav) nav: Nav;
   @ViewChild(Menu) menu:Menu;

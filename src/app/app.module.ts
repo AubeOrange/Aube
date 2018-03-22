@@ -21,6 +21,7 @@ import { Camera } from '@ionic-native/camera';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import {SpeechRecognition} from "@ionic-native/speech-recognition";
 import { ReveilPage } from '../pages/reveil/reveil';
+import {EquationModalPage} from "../pages/equation-modal/equation-modal";
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { ReveilPage } from '../pages/reveil/reveil';
         ProfilePage,
         ChatPage,
         ProfileModalPage,
-        ReveilPage,
+        EquationModalPage,
+        ReveilPage
     ],
     imports: [
         BrowserModule,
@@ -49,7 +51,8 @@ import { ReveilPage } from '../pages/reveil/reveil';
         ProfilePage,
         ChatPage,
         ProfileModalPage,
-        ReveilPage,
+        EquationModalPage,
+        ReveilPage
     ],
     providers: [
         ChatService,
