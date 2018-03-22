@@ -1,0 +1,467 @@
+/*!
+ * Landing Page for Djingo
+ *
+ * Created by Aube Crew
+ *
+ *
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+/* ======================================================
+   Global styles
+   ====================================================== */
+
+section {
+	padding: 50px 20px 80px;
+}
+
+.heading {
+	padding-bottom: 30px;
+}
+
+.desktop-only {
+	display: inline;
+}
+
+.mobile-only {
+	display: none;
+}
+
+/* Navbar */
+
+.navbar-default {
+	margin: 0;
+	background: none;
+	border: none;
+}
+
+
+.navbar-default .navbar-brand, .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+	/*padding-top: 10px;*/
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-nav>li>a:focus {
+	color:white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #0099FF;
+}
+
+
+.navbar-default .navbar-toggle {
+	border-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+.logo{
+	width: 12%;
+}
+
+
+/* Buttons */
+
+.btn-lg {
+	margin: 10px;
+	padding: 10px 30px;
+}
+
+.btn-primary {
+	background-color: #0099FF;
+	border: 2px solid #0099FF;
+}
+
+
+.btn-secondary, .btn-secondary:focus {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(237, 237, 237,0.1);
+    color: white;
+}
+
+
+
+
+/* ======================================================
+   Sections
+   ====================================================== */
+
+/* Header */
+
+#header {
+	/* adjust opacity of linear gradient according to background photo */
+	background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.7)), url("../img/landingPage.png") no-repeat bottom center;
+	width: 100%;
+	overflow: hidden;
+	background-size: cover;
+	color: white;
+	padding: 0;
+}
+
+#header-info {
+	padding: 120px 100px;
+}
+
+.title{
+    font-family: Roboto;
+    font-size: 25px;
+}
+
+.fonts{
+    font-family: Roboto;
+}
+
+/* Benefits */
+
+#benefits {
+
+}
+
+#benefits .icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin: 0 auto;
+	display: table;
+}
+
+#benefits .icon .fa {
+	font-size: 38px;
+	color: #0099FF;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#benefits .item {
+    padding-bottom: 40px;
+}
+
+#benefits .item p {
+	padding: 0 10px;
+}
+
+#benefits .devices {
+	margin-top: -260px;
+	max-width: 220px;
+}
+
+#benefits .alexa {
+	margin-top: -350px;
+	max-height: 350px;
+}
+
+#benefits .google-home {
+	margin-top: -286px;
+	max-height: 240px;
+}
+
+/* Features */
+
+#features {
+	background-color: rgb(238, 238, 238);
+}
+
+#features h1{
+	text-align: left;
+}
+
+#features .item {
+	padding: 10px 10px 0 10px;
+}
+
+#features .item p {
+	padding: 50px;
+	border-top: 0px solid #0099FF;
+	font-size: 18px;
+}
+
+.right {
+	text-align: right;
+}
+
+#features .firstParaph {
+	text-align: left;
+	font-family: Roboto;
+}
+
+.section{
+    height: 47px;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 5%;
+}
+
+.pulse
+{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    position:relative;
+    top:50%;
+    left:50%;
+    animation: 5s ease pulse infinite;
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.pulse:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* CTAs */
+
+.cta {
+	margin: 20px;
+	padding: 50px;
+	line-height: 1.5;
+}
+
+.cta h3 {
+	line-height: 1.5;
+	margin:0;
+	padding:15px;
+}
+
+.package{
+	width: 60%;
+}
+
+.package-orange{
+    width: 70%;
+}
+
+.change{
+    background-image: url("../img/Bouton-télécharger.png");
+    width: 360px;
+    height: 75px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.change img{
+    width: 100px;
+    height: 100px;
+}
+
+.change:hover{
+    background-image: url("../img/Bouton-télécharger-hover.png");
+    width: 360px;
+    height: 75px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.big-text {
+    width: 839px;
+    height: 132px;
+    font-family: Roboto;
+    font-size: 56px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.17);
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Alexa CTA */
+
+#alexa-skill {
+	
+}
+
+#alexa-skill img {
+	padding-top: 50px;
+}
+
+.content{
+	width: 65%;
+}
+
+/* Google Home CTA */
+
+#google-action {
+	background-color: rgb(238, 238, 238);
+}
+
+#google-action img {
+	max-width: 250px;
+}
+
+#google-action .cta {
+	background-color: white;
+}
+
+#google-action .triangle-isosceles:after {
+	right: 100px;
+	border-color: white transparent;
+}
+
+#home{
+	background-image: url("../img/photo-maison-deux.png");
+	background-size: cover;
+	height: 742px;
+}
+
+#resize .icon {
+	width: 90px;
+	height: 90px;
+	border-radius: 100%;
+	margin: 0 auto;
+	display: table;
+}
+
+#resize .icon .fa {
+	font-size: 38px;
+	color: #0099FF;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* Footer */
+
+.white{
+ color: #fff;
+}
+
+footer {
+	padding: 10px;
+	background-color: #ff7900;
+	opacity: 0.35;
+}
+
+
+/* ======================================================
+   Mobile styles
+   ====================================================== */
+
+@media (max-width: 420px) {
+    .section{
+        margin-bottom: 15%;
+        font-size: 25px;
+    }
+
+    .content {
+        width: 100%;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+
+	.display{
+	display: none;
+	}
+	#header-info {
+		padding: 50px 30px;
+	}
+
+	#benefits .devices {
+		margin: -126px auto 0;
+		max-width: 300px;
+		float:none!important;
+
+	}	
+
+	#benefits .alexa {
+		margin: -100px auto 0;
+		max-height: 250px;
+		float:none!important;
+
+	}	
+
+	#benefits .google-home {
+		margin: -107px auto 0;
+		max-width: 250px;
+		float:none!important;
+
+	}	
+
+	.cta {
+		padding-bottom: 30px;
+		margin-top: 50px;
+	}
+
+	.cta h3 {
+		padding-top:0;
+	}
+
+	#alexa-skill img {
+		max-height: 250px;
+		padding-top: 20px;
+	}
+
+	#google-action img {
+		max-height: 200px;
+	}
+
+
+	.desktop-only {
+		display: none;
+	}
+
+	.mobile-only {
+		display: inline;
+	}
+
+    .right{
+        text-align: center;
+    }
+
+    #features .firstParaph{
+        text-align: center;
+    }
+
+    #features h1{
+        text-align: center;
+    }
+
+    .package-orange{
+        width: 35%;
+    }
+    .big-text{
+        width: 100%;
+        font-size: 35px;
+    }
+	
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .right{
+        text-align: center;
+    }
+
+    .package-orange{
+        width: 45%;
+    }
+
+    .content{
+        width: 50%;
+    }
+
+    .big-text{
+        font-size: 40px;
+    }
+}
