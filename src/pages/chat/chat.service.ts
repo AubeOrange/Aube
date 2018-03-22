@@ -24,41 +24,35 @@ export class ChatService {
   converse(msg: string) {
     const userMessage = new Message(msg, 'user',null,null);
     this.update(userMessage);
+
     return this.client.textRequest(msg)
                .then(res => {
-                 switch(res.result.action){
-                   case "physique":{
-                     let test :Fulfillment = <Fulfillment> res.result.fulfillment;
-                     const speech = test.messages[0].payload.speech;
-                     const url = test.messages[0].payload.url;
-                     const botMessage = new Message(speech, 'bot',url,null);
+                 if(res.result.action == 'physique'){
+                   let test :Fulfillment = <Fulfillment> res.result.fulfillment;
+                   const taille = test.messages.length;
+                   const choice = Math.floor(Math.random() * taille );
+                   const speech = test.messages[choice].payload.speech;
+                   const url = test.messages[choice].payload.url;
+                   const botMessage = new Message(speech, 'bot',url,null);
+                   this.update(botMessage);
+
+                 }else if (res.result.action == 'yahooWeatherForecast'){
+                   let test :Fulfillment = <Fulfillment> res.result.fulfillment;
+                   if (test.data){
+                     this.getImageMeteo(test.data.condition);
+                     const botMessage = new Message(test.speech, 'bot',null,null);
                      this.update(botMessage);
-                     break;
-                   }
-                   case "yahooWeatherForecast":{
-                     let test :Fulfillment = <Fulfillment> res.result.fulfillment;
-                     if (test.data){
-                       this.getImageMeteo(test.data.condition);
-                       const botMessage = new Message(test.speech, 'bot',null,null);
-                       this.update(botMessage);
-                       this.getHabitMeteo(test.data);
-                     }else{
-                       const speech = res.result.fulfillment.speech;
-                       const botMessage = new Message(speech, 'bot',null,null);
-                       this.update(botMessage);
-                     }
-                     break;
-                   }
-                   default:{
+                     this.getHabitMeteo(test.data);
+                   }else{
                      const speech = res.result.fulfillment.speech;
                      const botMessage = new Message(speech, 'bot',null,null);
                      this.update(botMessage);
-                     break;
                    }
-
+                 }else{
+                   const speech = res.result.fulfillment.speech;
+                   const botMessage = new Message(speech, 'bot',null,null);
+                   this.update(botMessage);
                  }
-
-
                });
   }
 
@@ -123,7 +117,6 @@ export class ChatService {
   }
 
   addReponseEquation(content,url){
-
     const userMessage1 = new Message(null, 'bot',url,"smiley");
     const userMessage2 = new Message(content, 'bot',null,null);
     this.update(userMessage1);
