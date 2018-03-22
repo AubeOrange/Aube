@@ -7,10 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-            Informations de connexion
-        </ion-card-header>
+  <p class="text">
+    Informations de connexion
+  </p>
+  <ion-card class="stylized">
         <ion-item>
             <ion-input type="text" [(ngModel)]="user.email" placeholder="Adresse email" clearInput required></ion-input>
         </ion-item>
@@ -20,10 +20,10 @@
         </ion-item>
     </ion-card>
 
-    <ion-card>
-        <ion-card-header>
-            Qui êtes vous ?
-        </ion-card-header>
+    <p class="text">
+      Qui êtes vous ?
+    </p>
+    <ion-card class="stylized">
         <ion-item>
             <ion-input type="string" [(ngModel)]="user.username" placeholder="Nom d'utilisateur" clearInput required></ion-input>
         </ion-item>
@@ -46,10 +46,10 @@
         </ion-item>
     </ion-card>
 
-    <ion-card>
-        <ion-card-header>
-            Pour votre bien-être
-        </ion-card-header>
+    <p class="text">
+      Pour votre bien-être
+    </p>
+    <ion-card class="stylized">
         <ion-item>
             <ion-input type="number" [(ngModel)]="user.taille" placeholder="Votre taille (en cm)" clearInput required></ion-input>
         </ion-item>
@@ -59,5 +59,15 @@
         </ion-item>
     </ion-card>
 
-    <button ion-button round (click)="register(user)" full>Rejoignez l'aventure!</button>
+    <p class="text-info">Nous récoltons ses informations pour le calcul de
+      votre IMC qui nous aidera à calculer votre meilleur
+      petit déjeuné</p>
+
+    <ion-item>
+      <ion-label class="cgu">En créant un compte, vous acceptez les Conditions
+        <br>générales et Politique de confidentialité d’Aube</ion-label>
+      <ion-checkbox color="white" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button round (click)="register(user)" full class="button-orange">Rejoignez l'aventure!</button>
 </ion-content>

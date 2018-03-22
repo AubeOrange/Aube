@@ -12,7 +12,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="assets/imgs/marty-avatar.png">
+                <img src="assets/imgs/profile/avatar-profil-papa.png">
             </ion-avatar>
             <h2> {{ (user | async)?.username }}</h2>
             <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
@@ -21,7 +21,7 @@
             <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
         </ion-item>
 
-        <img src="assets/imgs/advance-card-bttf.png">
+        <img src="assets/imgs/profile/graphique.svg">
 
         <ion-item>
             <ion-icon name="mail" item-left large ></ion-icon>

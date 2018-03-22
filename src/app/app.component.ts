@@ -6,12 +6,13 @@ import {ChatPage} from "../pages/chat/chat";
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { ReveilPage } from '../pages/reveil/reveil';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = ProfilePage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
   reveilPage: any = ReveilPage;
