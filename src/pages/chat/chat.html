@@ -1,35 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>ChatBot</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>ChatBot</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ng-container *ngFor="let message of messages | async"  >
-    <div class="message" *ngIf="message.content" [ngClass]="{ 'from': message.sentBy === 'bot',
+    <ng-container *ngFor="let message of messages | async"  >
+        <div class="message" *ngIf="message.content" [ngClass]="{ 'from': message.sentBy === 'bot',
                                     'to':   message.sentBy === 'user' }">
-      {{ message.content }}
-    </div>
-    <img *ngIf="message.url" src="{{message.url}}" class="{{message.css ? message.css : ''}}"/>
-  </ng-container>
+            {{ message.content }}
+        </div>
+        <img *ngIf="message.url" src="{{message.url}}" class="{{message.css ? message.css : ''}}"/>
+    </ng-container>
 
 </ion-content>
 <ion-footer>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-9>
-        <ion-item>
-          <ion-input placeholder="Votre Message" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col col-3 style="display: flex">
-          <button ion-button  color="light" full block (click)="startListening()"  style="margin: auto;margin-bottom: 0"><ion-icon name="mic"></ion-icon>  </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-9>
+                <ion-item>
+                    <ion-input placeholder="Votre Message" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col col-3 style="display: flex">
+                <button ion-button  color="light" full block (click)="startListening()"  style="margin: auto;margin-bottom: 0"><ion-icon name="mic"></ion-icon>  </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 
 
