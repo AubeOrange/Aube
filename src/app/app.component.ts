@@ -2,7 +2,7 @@ import {Component, Injector, ViewChild} from '@angular/core';
 import {Menu, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {ChatPage} from "../pages/chat/chat";
+import { ChatPage } from "../pages/chat/chat";
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { ReveilPage } from '../pages/reveil/reveil';
@@ -11,7 +11,7 @@ import { ReveilPage } from '../pages/reveil/reveil';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ChatPage;
+  rootPage:any = ReveilPage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
   reveilPage: any = ReveilPage;
