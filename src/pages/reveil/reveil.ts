@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { ChatPage } from '../chat/chat';
 import * as moment from 'moment';
 
 /**
@@ -24,18 +25,10 @@ export class ReveilPage {
 
     notifications: any[] = [];
 
+    scheduledNotifications: any[] = [];
+
     constructor(public navCtrl: NavController, public navParams: NavParams, private localNotification:LocalNotifications, private alertCtrl:AlertController, private platform:Platform) {
         this.notificationTime = moment(new Date()).format();
-        this.platform.ready().then(ready => {
-            this.localNotification.on('click', (notification, state) => {
-                let json = JSON.parse(notification.data);
-                let alert = this.alertCtrl.create({
-                    title: notification.title,
-                    subTitle: json.mydata,
-                });
-                alert.present();
-            });
-        });
 
         this.days = [
             { title: 'Lundi', dayId: 1, checked: false},
@@ -48,8 +41,15 @@ export class ReveilPage {
         ];
     }
 
+    ngOnInit(){
+        this.platform.ready().then(result => {
+            this.localNotification.getAllScheduled().then(data => {
+                this.notifications = data;
+            });
+        });
+    }
+
     timeChange(time){
-        console.log(time);
         this.notifHour = time.hour;
         this.notifMinute = time.minute;
     }
@@ -75,7 +75,7 @@ export class ReveilPage {
                     id: day.dayId,
                     title: 'Hey! Debout la dedans',
                     text: 'Bon reveil avec Aube',
-                    sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assets/sounds/secondes.caf',
+                    sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assests/sounds/secondes.caf',
                     at: firstNotificationTime,
                     every: 'week'
                 };
@@ -87,19 +87,11 @@ export class ReveilPage {
         for(let notification of this.notifications){
             this.localNotification.schedule(notification);
         }
-        let alert = this.alertCtrl.create({
-            title: 'Notifications set',
-            buttons: ['Ok']
-        });
+    }
 
-        alert.present();
-        // this.localNotification.schedule({
-        //     id: 1,
-        //     title: 'Reveil Aube',
-        //     text: 'Notification depuis Aube',
-        //     data: { mydata: 'hello'},
-        //     at: new Date(new Date().getTime() + 5 *  1000)
-        //
-        // })
+    clearNotifications(){
+        this.localNotification.cancelAll().then(() => {
+            this.notifications = [];
+        });
     }
 }

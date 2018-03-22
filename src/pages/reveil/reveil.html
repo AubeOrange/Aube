@@ -36,7 +36,18 @@
             <ion-label>{{day.title}}</ion-label>
             <ion-checkbox [(ngModel)]="day.checked" color="primary"></ion-checkbox>
         </ion-item>
-
     </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Liste de reveils
+        </ion-list-header>
+        <ion-item *ngFor="let notification of notifications">
+            <ion-label>{{ notification.title }}</ion-label>
+            <!--<ion-checkbox color="primary"></ion-checkbox>-->
+        </ion-item>
+    </ion-list>
+
     <button ion-button (click)="scheduleNotification()">Schedule !</button>
+    <button ion-button (click)="clearNotifications()">Annuler tous les reveils</button>
 </ion-content>
