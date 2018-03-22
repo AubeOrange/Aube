@@ -9,44 +9,54 @@
 
 <ion-content>
     <ion-card>
-
         <ion-item>
             <ion-avatar item-start>
                 <img src="assets/imgs/profile/avatar-profil-papa.png">
             </ion-avatar>
-            <h2> {{ (user | async)?.username }}</h2>
-            <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
-            <ion-icon *ngIf=" (user | async)?.sexe === 'feminin'" name="female"></ion-icon>
-            <p>  <ion-icon name="flame"></ion-icon> {{ (user | async )?.age}} ans</p>
-            <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
+
+          <ion-row>
+            <ion-col>
+              <h2> {{ (user | async)?.username }}</h2></ion-col>
+            <ion-col>
+                <img src="assets/imgs/profile/edit.svg" (click)="openModal()" class="edit">
+            </ion-col>
+          </ion-row>
+
+            <img src="assets/imgs/profile/man-gender.svg" class="gender" *ngIf=" (user | async)?.sexe === 'masculin'" name="male">
+            <img src="assets/imgs/profile/woman-gender.svg" *ngIf=" (user | async)?.sexe === 'feminin'" name="female">
+
+
+          <ion-row>
+            <ion-col>
+              <img src="assets/imgs/profile/age.svg" class="age">
+
+              <p class="set-text">{{ (user | async )?.age}} ans</p>
+            </ion-col>
+          </ion-row>
+          <img src="assets/imgs/profile/points.svg" class="star">
+          <p style="color: gold" class="set-text-star">{{ (user | async)?.points }} </p>
         </ion-item>
 
         <img src="assets/imgs/profile/graphique.svg">
 
-        <ion-item>
-            <ion-icon name="mail" item-left large ></ion-icon>
-            <h2> {{ (user | async )?.email }}</h2>
+        <ion-item style="margin-top: 15px;">
+          <img src="assets/imgs/profile/mail.svg" class="mail size-text">
+          <h2 class="set-title"> {{ (user | async )?.email }}</h2>
         </ion-item>
 
         <ion-item>
-            <ion-icon name="locate" item-left large ></ion-icon>
-            <h2> {{ (user | async )?.ville }}</h2>
+          <img src="assets/imgs/profile/localisation.svg" class="locate size-text">
+            <h2 class="set-title"> {{ (user | async )?.ville }}</h2>
         </ion-item>
 
         <ion-item>
-            <ion-icon name="body" item-start large></ion-icon>
-            <h2>IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
-            <p>{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
+          <img src="assets/imgs/profile/bonhomme.svg" class="imc size-text">
+            <h2 class="set-title">IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
+            <p class="set-subtitle">{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
         </ion-item>
-
-        <ion-row>
-            <ion-col>
-                <button ion-button icon-left clear small (click)="openModal()">
-                    <ion-icon name="clipboard"></ion-icon>
-                    <div>Mettre à jour mes informations</div>
-                </button>
-            </ion-col>
-        </ion-row>
-
     </ion-card>
 </ion-content>
+
+<ion-footer class="button-orange">
+  <img src="assets/imgs/profile/chat-bot.svg" class="chat">
+</ion-footer>
