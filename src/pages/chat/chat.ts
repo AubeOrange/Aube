@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertController, IonicPage, ModalController, NavController, NavParams, Platform} from 'ionic-angular';
 import {ChatService} from "./chat.service";
 import {Observable} from "rxjs/Observable";
@@ -32,11 +32,10 @@ export class ChatPage {
                 public navParams: NavParams,
                 public chat: ChatService,
                 public alertCtrl: AlertController,
-                private cd: ChangeDetectorRef,
                 private platform:Platform,
                 private modalCtrl:ModalController,
+                private cd: ChangeDetectorRef,
                 private speechRecognition: SpeechRecognition) {
-
         if (this.navParams.get('mydata')){
             this.openModal();
         }
@@ -49,7 +48,6 @@ export class ChatPage {
 
     ionViewDidLoad() {
         this.chat.addMsgBienvenue(null);
-        console.log('ionViewDidLoad ChatPage');
     }
 
     sendMessage() {
@@ -84,10 +82,13 @@ export class ChatPage {
                 language: 'fr-FR'
             };
             this.speechRecognition.startListening(options).subscribe(matches => {
-                this.chat.converse(matches[0]);
+              this.chat.converse(matches[0]).then(data => {
+                this.stopListening();
                 this.cd.detectChanges();
+              }, error => {
+
+              });
             });
-            this.isRecording = true;
         }else{
             this.showAlert("Non disponible sur desktop");
         }
@@ -112,6 +113,10 @@ export class ChatPage {
         const modal = this.modalCtrl.create(EquationModalPage);
         modal.present();
     }
+
+  isIos() {
+    return this.platform.is('ios');
+  }
 
 
 }

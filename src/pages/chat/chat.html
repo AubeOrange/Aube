@@ -27,6 +27,7 @@
             </ion-col>
             <ion-col col-3 style="display: flex">
                 <button ion-button  color="light" full block (click)="startListening()"  style="margin: auto;margin-bottom: 0"><ion-icon name="mic"></ion-icon>  </button>
+                <button ion-button full (click)="stopListening()" *ngIf="isIos()">Stop Listening</button>
             </ion-col>
         </ion-row>
     </ion-grid>
