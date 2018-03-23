@@ -3,9 +3,9 @@
 
 ### Prerequisites
 Ensure you have this installed before proceeding further
-- Node 6.0 or above,  
-- npm 5 or above,   
-- Ionic CLT
+- [Node 6.0 or above](https://nodejs.org/en/),  
+- [npm 5 or above](https://www.npmjs.com/get-npm),   
+- [Ionic CLI](https://ionicframework.com/getting-started)
 
 To run an Ios Simulator on your Mac, make sure you installed:
 - xCode
@@ -29,29 +29,43 @@ or use SSH
 git clone git@github.com:AubeOrange/Aube.git
 ```
 
-### Install Aube
+### Install the all package Aube
 ```
 npm install
 ```
 
-### Build Backend (SpringBoot Java)
-http://localhost:8080
+### Run the application on your Browser
 ```
-# Backend Dev to /
-mvn clean install
-mvn spring-boot:run
+ionic serve
+```
+- Options ou can add 
+
+> "-l" to use ionic-lab => Allow you to simulate you app on an Ios, Andoid and Windows device
+> "-c" to have logs on your terminal
+
+### Chatbot 
+
+The chatbot allows you to talk to him, and he will answer your somthink depending on what you have said or wrote.
+You can also use the Voice Recognition to talk to him
+
+#### What you can ask to Aube's Chatbot
+
+##### Weather
+You can ask for the current Weather on a certain city.
+It will returns the temperature degrees with a small image of the sky state
+```
+Quel est la météo aujourd'hui ?"
+```
+It will ask you the city you asked the weather. You can per example aswer ```Paris```
+
+```
+Météo à Paris
 ```
 
+##### Physical exercice
+You can ask for a physical wake up.
+It will answer you with a GIF describing some skretching movements
 
-### Database (H2 in memory)
-http://localhost:8080/database
 ```
-JDBC URL: jdbc:h2:file:./database/db
-UserName: sa
-Password: 
+Reveil physique
 ```
-
-#### Links 
-
-- Swagger : http://localhost:8080/swagger-ui.html
-- Database : http://localhost:8080/database/
