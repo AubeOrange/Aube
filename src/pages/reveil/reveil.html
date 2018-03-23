@@ -10,12 +10,45 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-            Notifications
+            Reveil
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <button ion-button (click)="scheduleNotification()">Schedule !</button>
+    <ion-item>
+        <ion-label>Heure du reveil</ion-label>
+        <ion-datetime
+                displayFormat="HH:mm"
+                doneText="Valider"
+                cancelText="Annuler"
+                (ionChange)="timeChange($event)"
+                [(ngModel)]="notificationTime">
+
+        </ion-datetime>
+    </ion-item>
+
+    <ion-list  radio-group>
+        <ion-list-header class="ion-list-header">
+            <h2>Jours</h2>
+        </ion-list-header>
+        <ion-item *ngFor="let day of days">
+            <ion-label>{{day.title}}</ion-label>
+            <ion-radio value="{{day.title}}" (click)="onSelectDay(day)"></ion-radio>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngIf=" scheduledNotifications.length > 0">
+        <ion-list-header class="ion-list-header">
+            Mes reveils
+        </ion-list-header>
+        <ion-item *ngFor="let alarm of scheduledNotifications">
+            <ion-icon name="alarm" item-start large></ion-icon>
+            <h2>{{alarm}}</h2>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button full class="button-orange" (click)="scheduleNotification()">Programmer !</button>
 </ion-content>
