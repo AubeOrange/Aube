@@ -13,7 +13,7 @@ Ensure you have this installed before proceeding further
 - [Ionic CLI](https://ionicframework.com/getting-started)
 
 To run an Ios Simulator on your Mac, make sure you installed:
-- xCode
+- [Xcode](https://developer.apple.com/xcode/)
 
 
 ### Technology Stack
