@@ -6,6 +6,8 @@ import { ChatPage } from "../pages/chat/chat";
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { ReveilPage } from '../pages/reveil/reveil';
+import { LoginPage } from '../pages/login/login';
+import { ProfileModalPage } from "../pages/profile-modal/profile-modal";
 
 @Component({
   templateUrl: 'app.html'

@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import { ModalController } from 'ionic-angular';
 import { User } from "../../modules/user";
 import { ProfileModalPage } from '../profile-modal/profile-modal';
+import { ChatPage } from '../chat/chat';
+import { ReveilPage }  from '../reveil/reveil';
 
 @IonicPage()
 @Component({
@@ -33,5 +35,13 @@ export class ProfilePage {
       const modal = this.modalCtrl.create(ProfileModalPage);
       modal.present();
   }
+
+  redirectToChat(){
+      this.navCtrl.push(ChatPage);
+  }
+
+  redirectToReveilPage(){
+      this.navCtrl.push(ReveilPage);
+    }
 
 }

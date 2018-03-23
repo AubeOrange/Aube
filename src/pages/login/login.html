@@ -1,28 +1,20 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Connexion</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
     <div class="login-form">
-        <img src="assets/imgs/logo.png" alt="LogoAube" class="login-logo">
-        <ion-item>
+        <img src="assets/imgs/logo_aube.svg" alt="LogoAube" class="login-logo">
+        <ion-item class="space">
             <ion-input type="text" [(ngModel)]="user.email" placeholder="Adresse email" clearInput></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="space">
             <ion-input type="password" [(ngModel)]="user.password" placeholder="Mot de passe" clearInput></ion-input>
         </ion-item>
 
         <button ion-button (click)="login(user)" full class="button-orange">Connexion</button>
 
         <div class="center">
-            <p>Vous n'avez pas encore de compte ?</p>
-            <button ion-button round (click)="redirectToRegisterPage()" clear small>Inscription</button>
+            <p class="text-white">Vous n'avez pas encore de compte ?</p>
         </div>
+
+      <button ion-button round (click)="redirectToRegisterPage()" class="subscribe" clear small>Inscription</button>
     </div>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>ProfileModal</ion-title>
+        <ion-title>Modifier votre profil</ion-title>
         <ion-buttons start>
             <button ion-button clear small (click)="dismiss()">
                 <span ion-text showWhen="ios">Annuler</span>
@@ -13,10 +13,17 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-avatar item-start>
+      <img src="assets/imgs/profile/avatar-profil-papa.png" class="avatar-modify">
+    </ion-avatar>
+
+    <!--<img src="assets/imgs/profile/ok.svg" class="ok" (click)="updateProfile(user)">-->
+    <button ion-button class="confirmBtn" full (click)="updateProfile(user)">Sauvegarder</button>
+
+    <ion-card-header class="card-title">
+      Qui êtes vous ?
+    </ion-card-header>
     <ion-card>
-        <ion-card-header class="card-title">
-            Qui êtes vous ?
-        </ion-card-header>
         <ion-item>
             <ion-label>Nom d'utilisateur</ion-label>
             <ion-input type="string" [(ngModel)]="user.username" placeholder="{{ (userInfo | async)?.username }}" clearInput></ion-input>
@@ -42,10 +49,10 @@
         </ion-item>
     </ion-card>
 
-    <ion-card>
-        <ion-card-header class="card-title">
-            Pour votre bien-être
-        </ion-card-header>
+  <ion-card-header class="card-title">
+    Pour votre bien-être
+  </ion-card-header>
+  <ion-card>
         <ion-item>
             <ion-label>Taille (en cm)</ion-label>
             <ion-input type="string" [(ngModel)]="user.taille" placeholder="{{ (userInfo | async)?.taille }}" clearInput></ion-input>
@@ -56,10 +63,4 @@
             <ion-input type="number" [(ngModel)]="user.poids" placeholder="{{ (userInfo | async)?.poids }}" clearInput></ion-input>
         </ion-item>
     </ion-card>
-
-
-    <button ion-button small full (click)="updateProfile(user)">
-        <span ion-text>Sauvegarder</span>
-    </button>
-
 </ion-content>

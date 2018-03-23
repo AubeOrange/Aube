@@ -37,7 +37,9 @@ import {EquationModalPage} from "../pages/equation-modal/equation-modal";
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+            backButtonText: 'Retour'
+        }),
         AngularFireModule.initializeApp(FIREBAS_CONFIG),
         AngularFireAuthModule,
         AngularFireDatabaseModule

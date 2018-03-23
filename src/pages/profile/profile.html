@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+            <ion-icon class="icons" name="menu"></ion-icon>
         </button>
         <ion-title>Votre Profil</ion-title>
     </ion-navbar>
@@ -9,44 +9,50 @@
 
 <ion-content>
     <ion-card>
-
         <ion-item>
             <ion-avatar item-start>
-                <img src="assets/imgs/marty-avatar.png">
+                <img src="assets/imgs/profile/avatar-profil-papa.png">
             </ion-avatar>
-            <h2> {{ (user | async)?.username }}</h2>
+
+            <h1> {{ (user | async)?.username }}</h1>
+
             <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
             <ion-icon *ngIf=" (user | async)?.sexe === 'feminin'" name="female"></ion-icon>
+
             <p>  <ion-icon name="flame"></ion-icon> {{ (user | async )?.age}} ans</p>
             <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
         </ion-item>
 
-        <img src="assets/imgs/advance-card-bttf.png">
-
-        <ion-item>
-            <ion-icon name="mail" item-left large ></ion-icon>
-            <h2> {{ (user | async )?.email }}</h2>
+        <ion-item class="updateProfilText" (click)="openModal()">
+            <ion-icon name="create"></ion-icon> Modifier mes informations
         </ion-item>
 
         <ion-item>
-            <ion-icon name="locate" item-left large ></ion-icon>
-            <h2> {{ (user | async )?.ville }}</h2>
+            <button ion-button full class="button-orange" (click)="redirectToReveilPage()">
+                Organiser mon reveil
+            </button>
+        </ion-item>
+
+        <img src="assets/imgs/profile/graphique.svg">
+
+        <ion-item>
+            <ion-icon class="icons" name="mail" item-left large></ion-icon>
+            <h2 class="set-title"> {{ (user | async )?.email }}</h2>
         </ion-item>
 
         <ion-item>
-            <ion-icon name="body" item-start large></ion-icon>
-            <h2>IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
-            <p>{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
+            <ion-icon class="icons" name="locate" item-left large></ion-icon>
+            <h2 class="set-title"> {{ (user | async )?.ville }}</h2>
         </ion-item>
 
-        <ion-row>
-            <ion-col>
-                <button ion-button icon-left clear small (click)="openModal()">
-                    <ion-icon name="clipboard"></ion-icon>
-                    <div>Mettre à jour mes informations</div>
-                </button>
-            </ion-col>
-        </ion-row>
-
+        <ion-item>
+            <ion-icon class="icons" name="body" item-left large></ion-icon>
+            <h2 class="set-title">IMC {{ this.Math.round((user | async )?.poids / this.Math.pow((user | async )?.taille/100, 2)) }}</h2>
+            <p class="set-subtitle">{{ (user | async )?.poids }} Kg | {{ (user | async )?.taille }} cm</p>
+        </ion-item>
     </ion-card>
 </ion-content>
+
+<ion-footer style="background: #ff7900" (click)="redirectToChat()">
+    <img src="assets/imgs/profile/chat-bot.svg" class="chat">
+</ion-footer>

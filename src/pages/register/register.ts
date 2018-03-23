@@ -16,6 +16,8 @@ export class RegisterPage {
 
     user = {} as User;
 
+    acceptCondition: boolean = false;
+
     constructor(public loadingCtrl:LoadingController, private aFDatabase:AngularFireDatabase, private aFAuth: AngularFireAuth, public alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams) {}
 
 
@@ -23,31 +25,36 @@ export class RegisterPage {
         if(
             Object.keys(user).length === 0 || user.username === undefined || user.email === undefined || user.password === undefined || user.age === undefined || user.poids === undefined || user.sexe === undefined || user.ville === undefined || user.taille === undefined
         ) {
-            this.showAlert('Veuillez remplir tous les champs')
+            this.showAlert('Veuillez remplir tous les champs');
         }
         else {
-            try{
-                await this.aFAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-                this.aFAuth.authState.subscribe(auth => {
-                    this.aFDatabase.object(`user/${auth.uid}`).set({
-                        'username': this.user.username,
-                        'email': this.user.email,
-                        'sexe': this.user.sexe,
-                        'age': this.user.age,
-                        'ville': this.user.ville,
-                        'points': 0,
-                        'poids': this.user.poids,
-                        'taille': this.user.taille,
-                    }).then( () => {
-                        this.presentLoading();
-                        this.navCtrl.setRoot(ProfilePage);
-                    }).catch(error => {
-                        this.showAlert(error.message);
-                    });
-                });
+            if( !this.acceptCondition) {
+                this.showAlert("Veuillez accepter les conditions d'utilisation");
             }
-            catch(error) {
-                this.showAlert(error.message);
+            else {
+                try{
+                    await this.aFAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+                    this.aFAuth.authState.subscribe(auth => {
+                        this.aFDatabase.object(`user/${auth.uid}`).set({
+                            'username': this.user.username,
+                            'email': this.user.email,
+                            'sexe': this.user.sexe,
+                            'age': this.user.age,
+                            'ville': this.user.ville,
+                            'points': 0,
+                            'poids': this.user.poids,
+                            'taille': this.user.taille,
+                        }).then( () => {
+                            this.presentLoading();
+                            this.navCtrl.setRoot(ProfilePage);
+                        }).catch(error => {
+                            this.showAlert(error.message);
+                        });
+                    });
+                }
+                catch(error) {
+                    this.showAlert(error.message);
+                }
             }
         }
     }

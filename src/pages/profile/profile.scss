@@ -1,3 +1,37 @@
 page-profile {
 
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+  .icons {
+    color: #ff7900;
+  }
+
+  .toolbar-title-md {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  .edit{
+    width: 24px;
+    height: 24px;
+  }
+
+  .chat{
+    width: 52.7px;
+    height: 37.1px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .button-orange{
+    background-color: #ff7900;
+  }
+  
+  .updateProfilText{
+    font-size: 14px;
+    color: #ff7900;
+    text-align: center;
+  }
 }
