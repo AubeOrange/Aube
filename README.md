@@ -47,6 +47,7 @@ ionic serve
 - Options ou can add 
 
 > "-l" to use ionic-lab => Allow you to simulate you app on an Ios, Andoid and Windows device
+
 > "-c" to have logs on your terminal
 
 ### Chatbot 
