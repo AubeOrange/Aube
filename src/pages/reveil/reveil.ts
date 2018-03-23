@@ -25,8 +25,6 @@ export class ReveilPage {
 
     notifications: any[] = [];
 
-    scheduledNotifications: any[] = [];
-
     constructor(public navCtrl: NavController, public navParams: NavParams, private localNotification:LocalNotifications, private alertCtrl:AlertController, private platform:Platform) {
         this.notificationTime = moment(new Date()).format();
 
@@ -37,14 +35,39 @@ export class ReveilPage {
         });
     }
 
+    timeChange(time){
+        this.notifHour = time.hour;
+        this.notifMinute = time.minute;
+    }
+
     scheduleNotification(){
-        console.log('notif schedule');
-        this.localNotification.schedule({
-            id: 1,
-            title: 'Hey! Debout la dedans',
-            text: 'Bon reveil avec Aube',
-            sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assets/sounds/secondes.caf',
-            at: new Date(new Date().getTime() + 5 * 1000),
-        });
+        if( this.notifHour !== undefined && this.notifMinute !== undefined){
+            console.log('notif schedule');
+
+            let alert = this.alertCtrl.create({
+                title:'Reveil programé',
+                subTitle: 'Un nouveau reveil est programmé tous les jours à '+this.notifHour+':'+this.notifMinute,
+                buttons: ['OK']
+            });
+
+            alert.present();
+
+            this.localNotification.schedule({
+                id: 1,
+                title: 'Hey! Debout la dedans',
+                text: 'Bon reveil avec Aube',
+                sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assets/sounds/secondes.caf',
+                at: new Date(new Date().getTime() + 5 * 1000),
+            });
+        }
+        else {
+            let alert = this.alertCtrl.create({
+                title:'Oups',
+                subTitle:'Veuillez selectionner une heure de reveil',
+                buttons: ['OK']
+            });
+
+            alert.present();
+        }
     }
 }
