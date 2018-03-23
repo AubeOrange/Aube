@@ -7,6 +7,7 @@ import { ModalController } from 'ionic-angular';
 import { User } from "../../modules/user";
 import { ProfileModalPage } from '../profile-modal/profile-modal';
 import { ChatPage } from '../chat/chat';
+import { ReveilPage }  from '../reveil/reveil';
 
 @IonicPage()
 @Component({
@@ -38,5 +39,9 @@ export class ProfilePage {
   redirectToChat(){
       this.navCtrl.push(ChatPage);
   }
+
+  redirectToReveilPage(){
+      this.navCtrl.push(ReveilPage);
+    }
 
 }

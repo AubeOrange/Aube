@@ -10,23 +10,27 @@
 <ion-content>
     <ion-card>
         <ion-item>
-            <ion-avatar item-start large>
+            <ion-avatar item-start>
                 <img src="assets/imgs/profile/avatar-profil-papa.png">
             </ion-avatar>
 
-            <ion-row>
-                <ion-col>
-                    <h2> {{ (user | async)?.username }}</h2></ion-col>
-                <ion-col>
-                    <img src="assets/imgs/profile/edit.svg" (click)="openModal()" class="edit">
-                </ion-col>
-            </ion-row>
+            <h1> {{ (user | async)?.username }}</h1>
 
             <ion-icon *ngIf=" (user | async)?.sexe === 'masculin'" name="male"></ion-icon>
             <ion-icon *ngIf=" (user | async)?.sexe === 'feminin'" name="female"></ion-icon>
 
             <p>  <ion-icon name="flame"></ion-icon> {{ (user | async )?.age}} ans</p>
             <p style="color: gold">   <ion-icon name="star"></ion-icon>  {{ (user | async)?.points }} </p>
+        </ion-item>
+
+        <ion-item class="updateProfilText" (click)="openModal()">
+            <ion-icon name="create"></ion-icon> Modifier mes informations
+        </ion-item>
+
+        <ion-item>
+            <button ion-button full class="button-orange" (click)="redirectToReveilPage()">
+                Organiser mon reveil
+            </button>
         </ion-item>
 
         <img src="assets/imgs/profile/graphique.svg">

@@ -3,7 +3,9 @@ page-login{
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
   ion-content{
-    background-image: url("assets/imgs/fond-inscription.png");
+    background-image: url("../assets/imgs/fond-inscription.png");
+    background-repeat:no-repeat;
+    background-size:cover;
   }
   .login-form{
     text-align: center;

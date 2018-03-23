@@ -35,7 +35,9 @@ import { ReveilPage } from '../pages/reveil/reveil';
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+            backButtonText: 'Retour'
+        }),
         AngularFireModule.initializeApp(FIREBAS_CONFIG),
         AngularFireAuthModule,
         AngularFireDatabaseModule

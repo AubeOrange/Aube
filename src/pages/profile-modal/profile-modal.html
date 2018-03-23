@@ -8,15 +8,18 @@
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
             </button>
         </ion-buttons>
-      <img src="assets/imgs/profile/ok.svg" class="ok" (click)="updateProfile(user)">
     </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
     <ion-avatar item-start>
-      <img src="assets/imgs/profile/avatar-profil-modifier.png" class="avatar-modify">
+      <img src="assets/imgs/profile/avatar-profil-papa.png" class="avatar-modify">
     </ion-avatar>
+
+    <!--<img src="assets/imgs/profile/ok.svg" class="ok" (click)="updateProfile(user)">-->
+    <button ion-button class="confirmBtn" full (click)="updateProfile(user)">Sauvegarder</button>
+
     <ion-card-header class="card-title">
       Qui êtes vous ?
     </ion-card-header>

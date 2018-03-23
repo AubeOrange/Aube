@@ -66,7 +66,7 @@
     <ion-item>
       <ion-label class="cgu">En créant un compte, vous acceptez les Conditions
         <br>générales et Politique de confidentialité d’Aube</ion-label>
-      <ion-checkbox color="white" checked="false"></ion-checkbox>
+      <ion-checkbox color="white" style="background: transparent" [(ngModel)]="acceptCondition"></ion-checkbox>
     </ion-item>
 
     <button ion-button round (click)="register(user)" full class="button-orange">Rejoignez l'aventure!</button>

@@ -20,8 +20,14 @@ page-register {
     color: #fff;
   }
 
+  .item-ios {
+    background-color: transparent !important;
+  }
+
   ion-content{
-    background-image: url('assets/imgs/fond-inscription-2.png');
+    background-image: url('../assets/imgs/fond-inscription-2.png');
+    background-repeat:no-repeat;
+    background-size:cover;
   }
 
   .stylized{
