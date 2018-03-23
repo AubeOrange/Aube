@@ -56,6 +56,19 @@ You can also use the Voice Recognition to talk to him
 
 #### What you can ask to Aube's Chatbot
 
+##### Cerebral wake up
+When you click on you scheduled alarm clock (the notification), it will redirect you to the Chatbot page and directly ask you to resolve a little mathematical equation
+Depeding on your answer, the Chatbot will congratulate you or encourage you to try the next day with a small image (GIF).
+
+##### Physical wake up
+You can ask for a physical wake up.
+It will answer you with a GIF describing some skretching movements
+
+```
+Reveil physique
+```
+
+
 ##### Weather
 You can ask for the current Weather on a certain city.
 It will returns the temperature degrees with a small image of the sky state
@@ -66,12 +79,4 @@ It will ask you the city you asked the weather. You can per example aswer ```Par
 
 ```
 Météo à Paris
-```
-
-##### Physical exercice
-You can ask for a physical wake up.
-It will answer you with a GIF describing some skretching movements
-
-```
-Reveil physique
 ```
