@@ -13,7 +13,7 @@ import { ProfileModalPage } from "../pages/profile-modal/profile-modal";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ReveilPage;
+  rootPage:any = HomePage;
   chatPage:any = ChatPage;
   profilePage:any = ProfilePage;
   reveilPage: any = ReveilPage;

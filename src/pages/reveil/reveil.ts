@@ -20,8 +20,8 @@ export class ReveilPage {
 
     days: any[];
     notificationTime: any;
-    notifHour: any;
-    notifMinute: any;
+    notifHour: any = 0;
+    notifMinute: any = 0;
 
     notifications: any[] = [];
 
@@ -37,14 +37,43 @@ export class ReveilPage {
         });
     }
 
+    timeChange(time){
+        this.notifHour = time.hour;
+        this.notifMinute = time.minute;
+    }
+
     scheduleNotification(){
-        console.log('notif schedule');
-        this.localNotification.schedule({
-            id: 1,
-            title: 'Hey! Debout la dedans',
-            text: 'Bon reveil avec Aube',
-            sound: this.platform.is('android') ? 'file://assets/sounds/secondes.mp3' : 'file://assets/sounds/secondes.caf',
-            at: new Date(new Date().getTime() + 5 * 1000),
-        });
+        if( this.notifHour === 0 || this.notifMinute === 0){
+            let alert = this.alertCtrl.create({
+                title:'Oups',
+                subTitle:'Veuillez selectionner une heure de reveil',
+            });
+
+            alert.present();
+        }
+        else {
+            // this.localNotification.schedule({
+            //     id: 1,
+            //     title: 'Hey! Debout la dedans',
+            //     text: 'Bon reveil avec Aube',
+            //     sound: 'file://assets/sounds/secondes.wav',
+            //     at: new Date(new Date().getTime() + 5 * 1000),
+            //     every:'day',
+            // });
+
+            this.localNotification.schedule({
+                id: 1,
+                title: 'hey',
+                text: 'bon reveil',
+                at: new Date(new Date().getTime() + 5 * 1000),
+            });
+
+            let alert = this.alertCtrl.create({
+                title:'Youpi',
+                subTitle:'Vous serez reveiller tous les jours de la semaine à '+ this.notifHour + ":" + this.notifMinute,
+            });
+
+            alert.present();
+        }
     }
 }
