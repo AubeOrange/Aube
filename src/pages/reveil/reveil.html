@@ -10,12 +10,24 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-            Notifications
+            Reveil
         </ion-title>
     </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-    <button ion-button (click)="scheduleNotification()">Schedule !</button>
+    <ion-item>
+        <ion-label>Heure du reveil</ion-label>
+        <ion-datetime
+                displayFormat="HH:mm"
+                doneText="Valider"
+                cancelText="Annuler"
+                (ionChange)="timeChange($event)"
+                [(ngModel)]="notificationTime">
+
+        </ion-datetime>
+    </ion-item>
+
+    <button ion-button full (click)="scheduleNotification()">Mettre en place !</button>
 </ion-content>
+
