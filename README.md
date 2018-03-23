@@ -1,5 +1,4 @@
 # Aube By Orange
-![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Please explore our presentation landing page
 [https://aubeorange.github.io/Aube/](https://aubeorange.github.io/Aube/)
