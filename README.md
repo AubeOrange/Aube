@@ -1,6 +1,12 @@
 # Aube By Orange
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
+Please explore our presentation landing page
+[https://aubeorange.github.io/Aube/](https://aubeorange.github.io/Aube/)
+
+You can also download our Application APK to run Aube directly on your Android device
+[Aube APK](https://github.com/AubeOrange/Aube/releases)
+
 ### Prerequisites
 Ensure you have this installed before proceeding further
 - [Node 6.0 or above](https://nodejs.org/en/),  
